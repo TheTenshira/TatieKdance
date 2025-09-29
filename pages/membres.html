@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Présentation des Membres</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .membres-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+        }
+        .membre-box {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            width: 260px;
+            padding: 24px 18px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .membre-box:hover {
+            transform: translateY(-6px) scale(1.03);
+        }
+        .membre-photo {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 14px;
+            border: 3px solid #e0e0e0;
+        }
+        .membre-nom {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 6px;
+            color: #222;
+        }
+        .membre-role {
+            color: #888;
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+        .membre-desc {
+            font-size: 0.97em;
+            color: #444;
+        }
+    </style>
+    <link rel="icon" href="../logo/idk.png">
+</head>
+<body>
+    <div class="container">
+        <h1>Présentation des Membres</h1>
+        <div class="membres-grid">
+            <div class="membre-box">
+                <img src="" alt="Photo membre" class="membre-photo">
+                <div class="membre-nom">Guyllaine JULIENNE</div>
+                <div class="membre-role">Présidente</div>
+                <!--<div class="membre-desc">
+                    description
+                </div>-->
+            </div>
+            <div class="membre-box">
+                <img src="../profile_picture/tatie.jpg" alt="Photo membre" class="membre-photo">
+                <div class="membre-nom">Danielle CARPIER (Tatie)</div>
+                <div class="membre-role">Secrétaire</div>
+                <div class="membre-desc">
+                    description
+                </div>
+            </div>
+            <div class="membre-box">
+                <img src="../profile_picture/myriame.jpg" alt="Photo membre" class="membre-photo">
+                <div class="membre-nom">Myriam LARDILLIER</div>
+                <div class="membre-role">Trésorière</div>
+                <div class="membre-desc">
+                    description
+                </div>
+            </div>
+            <!-- <div class="membre-box">
+                <img src="" alt="Photo membre" class="membre-photo">
+                <div class="membre-nom">membre 4</div>
+                <div class="membre-role">role</div>
+                <div class="membre-desc">
+                    description
+                </div>
+            </div> -->
+            <!-- Ajoutez d'autres membres ici -->
+        </div>
+    </div>
+</body>
+</html>

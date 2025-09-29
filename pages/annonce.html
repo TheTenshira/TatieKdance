@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Page des Sondages et Annonces</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; }
+        .admin-section { display: none; margin-top: 30px; padding: 20px; border: 1px solid #ccc; background: #f9f9f9; }
+        .sondage { margin-bottom: 30px; }
+        .sondage h2 { margin-bottom: 10px; }
+        .annonce { margin-top: 20px; padding: 10px; background: #eef; border-left: 4px solid #36c; }
+        .btn { padding: 8px 16px; background: #36c; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+    </style>
+    <link rel="icon" href="../logo/idk.png">
+</head>
+<body>
+    <!-- <h1>Sondages</h1>
+    <div class="sondage">
+        <h2>Sondage : Quel style de danse préférez-vous ?</h2>
+        <form>
+            <label><input type="radio" name="style" value="hiphop"> Hip-Hop</label><br>
+            <label><input type="radio" name="style" value="classique"> Classique</label><br>
+            <label><input type="radio" name="style" value="salsa"> Salsa</label><br>
+            <label><input type="radio" name="style" value="contemporain"> Contemporain</label><br>
+            <button type="button" class="btn" onclick="alert('Merci pour votre vote ! (fictif)')">Voter</button>
+        </form>
+    </div>
+
+    <div class="annonce">
+        <strong>Annonce :</strong> Nouveau cours de danse contemporaine tous les mercredis à 18h !
+    </div> -->
+
+    <!-- Section réservée à l'admin -->
+    <div class="admin-section" id="adminSection">
+        <h2>Ajouter un sondage</h2>
+        <form>
+            <input type="text" placeholder="Titre du sondage" required><br><br>
+            <input type="text" placeholder="Option 1" required><br>
+            <input type="text" placeholder="Option 2" required><br>
+            <button type="button" class="btn">Ajouter</button>
+        </form>
+        <h2>Ajouter une annonce</h2>
+        <form>
+            <input type="text" placeholder="Texte de l'annonce" required><br>
+            <button type="button" class="btn">Ajouter</button>
+        </form>
+    </div>
+
+    <script>
+        // Simuler l'état de connexion admin (mettre à true pour voir la section admin)
+        const isAdmin = false; // Changez en true pour simuler un admin connecté
+
+        if (isAdmin) {
+            document.getElementById('adminSection').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

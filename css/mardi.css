@@ -1,0 +1,52 @@
+/* Section principale */
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    padding: 32px;
+}
+
+.button:hover, button:hover {
+    background: #357ab8;
+}
+
+/* Liens */
+a {
+    color: #4a90e2;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: #357ab8;
+    text-decoration: underline;
+}
+
+/* Tableaux */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+}
+
+th, td {
+    border: 1px solid #e0e6ed;
+    padding: 10px 16px;
+    text-align: left;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    main {
+        padding: 16px;
+    }
+    table, thead, tbody, th, td, tr {
+        display: block;
+        width: 100%;
+    }
+    th, td {
+        box-sizing: border-box;
+    }
+}

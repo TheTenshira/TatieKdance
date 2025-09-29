@@ -1,0 +1,145 @@
+/* CSS Gobal */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f2f2f2;
+    color: #2d2d2d;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #8011af;
+    color: #fff;
+    padding: 24px 0;
+    text-align: center;
+    letter-spacing: 2px;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 24px;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+nav {
+    background: #e6ccff;
+    padding: 12px 0;
+    text-align: center;
+    order: 2;
+    width: 100%;
+    position: static;
+    margin-bottom: 0;
+}
+
+nav a {
+    color: #2d2d2d;
+    text-decoration: none;
+    margin: 0 16px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: #f7b731;
+}
+
+main {
+    max-width: 800px;
+    margin: 32px auto;
+    padding: 24px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(247, 183, 49, 0.08);
+}
+
+h1, h2, h3 {
+    color: #008ae6;
+    margin-top: 0;  
+}
+
+button, .btn {
+    background: #f7b731;
+    color: #fff;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+
+button:hover, .btn:hover {
+    background: #e2a800;
+}
+
+footer {
+    text-align: center;
+    padding: 16px 0;
+    background: #fff3cd;
+    color: #8d6e00;
+    font-size: 0.95rem;
+    margin-top: 40px;
+}
+
+.logo {
+    height: 12vw;
+    min-height: 60px;
+    max-height: 200px;
+    width: auto;
+    max-width: 40vw;
+    z-index: 10;
+    flex-shrink: 0;
+}
+
+.header-container img,
+.header-logo {
+  width: 200px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+
+.login {
+    color: #008ae6;
+    text-decoration: none;
+    margin-left: auto;
+    font-size: 1.2rem;
+    border: 2px solid #ffffff;
+    padding: 4px 8px;
+    display: inline-block;
+    border-radius: 4px;
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        padding-left: 0;
+        padding-right: 0;
+        font-size: 1rem;
+    }
+    .logo {
+        position: static;
+        display: block;
+        margin: 0 auto 8px auto;
+        height: 18vw;
+        min-height: 48px;
+        max-height: 100px;
+        max-width: 60vw;
+    }
+    .header-title {
+        font-size: 1.1rem;
+        text-align: center;
+        margin-left: 0;
+    }
+}

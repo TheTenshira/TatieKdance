@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #e8e8e8;
+            margin: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #8b3a9e;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+        }
+        th {
+            background-color: #8b3a9e;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+            border-right: 2px solid white;
+        }
+        th:last-child {
+            border-right: none;
+        }
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            color: #333;
+            vertical-align: middle;
+            text-align: center;
+        }
+        td:last-child {
+            border-right: none;
+        }
+        tr:hover {
+            background-color: #f3e5f5;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        .video-cell {
+            padding: 8px;
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tableau des Chorégraphies</h1>
+        <table id="choreoTable">
+            <thead>
+                <tr>
+                    <th style="width: 20%">Nom</th>
+                    <th style="width: 20%">Chorégraphe</th>
+                    <th style="width: 20%">Musique</th>
+                    <th style="width: 60%">Chorégraphie</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Living Line Fun</td>
+                    <td>Fiona Murray & Roy Hadisubroto</td>
+                    <td></td>
+                    <td class="video-cell" data-video=""></td>
+                </tr>
+                <tr>
+                    <td>Perfect Dance Party</td>
+                    <td>Jean Pierre Madge</td>
+                    <td></td>
+                    <td class="video-cell" data-video=""></td>
+                </tr>
+                <tr>
+                    <td>Never Be Lonely</td>
+                    <td>Esmeralda van de Pol</td>
+                    <td></td>
+                    <td class="video-cell" data-video=""></td>
+                </tr>
+                <tr>
+                    <td>Bad Dreams</td>
+                    <td>Amy Christian</td>
+                    <td></td>
+                    <td class="video-cell" data-video=""></td>
+                </tr>
+                <tr>
+                    <td>Calum's Rise</td>
+                    <td>Colin Ghys</td>
+                    <td></td>
+                    <td class="video-cell" data-video=""></td>
+                </tr>
+                <tr>
+                    <td>The Door</td>
+                    <td>Jeff Smilko & Kari Smilko</td>
+                    <td></td>
+                    <td class="video-cell" data-video=""></td>
+                </tr>
+                <tr>
+                    <td>You're The One That I Want</td>
+                    <td>Leslie Fjelltveit</td>
+                    <td></td>
+                    <td class="video-cell" data-video=""></td>
+                </tr>
+                <tr>
+                    <td>Glass of Wine</td>
+                    <td>Malene Jakobsen</td>
+                    <td></td>
+                    <td class="video-cell" data-video=""></td>
+                </tr>
+                <tr>
+                    <td>I'm Alive</td>
+                    <td>Regina Cheung</td>
+                    <td></td>
+                    <td class="video-cell" data-video=""></td>
+                </tr>
+                <tr>
+                    <td>Always Will</td>
+                    <td>Heather Barton</td>
+                    <td></td>
+                    <td class="video-cell" data-video=""></td>
+                </tr>
+                <tr>
+                    <td>We Are Family</td>
+                    <td>Daren Bailey</td>
+                    <td></td>
+                    <td class="video-cell" data-video=""></td>
+                </tr>
+                <tr>
+                    <td>Dancing Queen</td>
+                    <td>Aleais Tait</td>
+                    <td></td>
+                    <td class="video-cell" data-video=""></td>
+                </tr>
+                <tr>
+                    <td>Urban Trad Get Real</td>
+                    <td>Styo117 </br> Crop Circle</td>
+                    <td></td>
+                    <td class="video-cell" data-video=""></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function extractYouTubeID(url) {
+            if (!url) return null;
+            const patterns = [
+                /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\?\/\s]+)/,
+                /^([a-zA-Z0-9_-]{11})$/
+            ];
+            
+            for (let pattern of patterns) {
+                const match = url.match(pattern);
+                if (match) return match[1];
+            }
+            return null;
+        }
+
+        function createVideoEmbed(videoID) {
+            return `
+                <div class="video-container">
+                    <iframe 
+                        src="https://www.youtube.com/embed/${videoID}" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            `;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.video-cell').forEach(cell => {
+                const videoUrl = cell.getAttribute('data-video');
+                if (videoUrl) {
+                    const videoID = extractYouTubeID(videoUrl);
+                    if (videoID) {
+                        cell.innerHTML = createVideoEmbed(videoID);
+                    }
+                }
+            });
+        });
+    </script>
+
+    <div id="footer"></div>
+
+    <script src="/tatiekdance/js/includes.js"></script>
+</body>
+</html>

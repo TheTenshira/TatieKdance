@@ -80,15 +80,6 @@ button:hover, .btn:hover {
     background: #e2a800;
 }
 
-footer {
-    text-align: center;
-    padding: 16px 0;
-    background: #fff3cd;
-    color: #8d6e00;
-    font-size: 0.95rem;
-    margin-top: 40px;
-}
-
 .logo {
     height: 12vw;
     min-height: 60px;

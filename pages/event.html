@@ -1,0 +1,24 @@
+<div id="events-list"></div>
+
+<div id="add-event-container" style="display:none">
+  <h3>Ajouter un événement</h3>
+  <form id="add-event-form">
+    <input type="text" id="event-title" placeholder="Titre" required><br>
+    <input type="date" id="event-date" required><br>
+    <textarea id="event-desc" placeholder="Description"></textarea><br>
+    <button type="submit">Ajouter l'événement</button>
+  </form>
+</div>
+
+<!-- Login simple -->
+<input type="email" id="email" placeholder="Email">
+<input type="password" id="password" placeholder="Mot de passe">
+<button onclick="signIn(document.getElementById('email').value, document.getElementById('password').value)">
+  Se connecter
+</button>
+<button onclick="signOut()">Se déconnecter</button>
+
+<!-- Inclure Supabase JS -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<!-- Inclure ton JS -->
+<script src="app.js"></script>

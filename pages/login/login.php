@@ -1,21 +1,32 @@
 <?php
+require "db.php";
 session_start();
 
-$errors = [
-    'login' => $_SESSION['login_error'] ?? '',
-    'register' => $_SESSION['register_error'] ?? '',
-];
-$activeForm = $_SESSION['active_form'] ?? 'login';
-
-session_unset();
-
-function showError($error) {
-    return !empty($error) ? "<p class='error-message'>$error</p>" : '';
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+  header("Location: login.html");
+  exit;
 }
 
-function isActiveForm($formName, $activeForm) {
-    return $formName === $activeForm ? 'active' : '';
+$email = trim($_POST['email']);
+$password = $_POST['password'];
+
+$stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
+$stmt->execute([$email]);
+$user = $stmt->fetch();
+
+if (!$user || !password_verify($password, $user['password'])) {
+  die("Identifiants incorrects");
 }
+
+$_SESSION['user_id'] = $user['id'];
+$_SESSION['role'] = $user['role'];
+
+if ($user['role'] === 'admin') {
+  header("Location: dashboard.php");
+} else {
+  header("Location: dashboard.php");
+}
+exit;
 
 ?>
 
@@ -33,29 +44,12 @@ function isActiveForm($formName, $activeForm) {
 <body>
     <div class="login-container">
         <div class="form-box <?= isActiveForm('login', $activeForm); ?>" id="login-form">
-            <form action="login_register.php" method="post">
-                <h2>Connexion</h2>
-                <?= showError($errors['login']); ?>
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="password" name="password" placeholder="Password" required>
-                <button type="submit" name="login">Se connecter</button>
-                <p>Pas encore inscrit ? <a href="#" onclick="showForm('register-form')">Créer un compte</a></p>
-            </form>
-        </div>
-
-        <div class="form-box <?= isActiveForm('register', $activeForm); ?>" id="register-form">
-            <form action="login_register.php" method="post">
-                <h2>S'inscrire</h2>
-                <?= showError($errors['register']); ?>
-                <input type="text" name="name" placeholder="Name" required>
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="password" name="password" placeholder="Password" required>
-                <button type="submit" name="register">S'inscrire</button>
-                <p>Déjà un compte? <a href="#" onclick="showForm('login-form')">Se connecter</a></p>
+            <form method="POST" action="login.php">
+                <input type="email" name="email" required placeholder="Email">
+                <input type="password" name="password" required placeholder="Mot de passe">
+                <button type="submit">Connexion</button>
             </form>
         </div>
     </div>
-
-    <script src="../../js/login.js"></script>
 </body>
 </html>
